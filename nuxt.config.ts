@@ -22,7 +22,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: "Lifeline",
+      title: "Lifeline of Peter Lewis: Software Engineer",
       link: [{ rel: "icon", type: "image/svg+xml", href: "/icon.svg" }],
       meta: [
         {
