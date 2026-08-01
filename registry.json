@@ -1,0 +1,389 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry.json",
+  "name": "peterlewis",
+  "homepage": "https://lifeline-peter-lewis.vercel.app",
+  "items": [
+    {
+      "name": "lifeline",
+      "type": "registry:block",
+      "title": "Lifeline",
+      "description": "A horizontal, scrub-driven timeline for stories that unfold over time. Plain Vue 3 — no framework coupling. Vue port of evilrabbit/lifeline.",
+      "dependencies": [
+        "@lucide/vue",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "components/Lifeline.vue",
+          "type": "registry:component",
+          "target": "components/Lifeline.vue"
+        },
+        {
+          "path": "components/LifelineLegend.vue",
+          "type": "registry:component",
+          "target": "components/LifelineLegend.vue"
+        },
+        {
+          "path": "components/lifeline/CompanyIcon.vue",
+          "type": "registry:component",
+          "target": "components/lifeline/CompanyIcon.vue"
+        },
+        {
+          "path": "components/lifeline/LifelineDesktop.vue",
+          "type": "registry:component",
+          "target": "components/lifeline/LifelineDesktop.vue"
+        },
+        {
+          "path": "components/lifeline/LifelineEventMedia.vue",
+          "type": "registry:component",
+          "target": "components/lifeline/LifelineEventMedia.vue"
+        },
+        {
+          "path": "components/lifeline/LifelineEventText.vue",
+          "type": "registry:component",
+          "target": "components/lifeline/LifelineEventText.vue"
+        },
+        {
+          "path": "components/lifeline/LifelineFireworksCanvas.vue",
+          "type": "registry:component",
+          "target": "components/lifeline/LifelineFireworksCanvas.vue"
+        },
+        {
+          "path": "components/lifeline/LifelineFireworksProvider.vue",
+          "type": "registry:component",
+          "target": "components/lifeline/LifelineFireworksProvider.vue"
+        },
+        {
+          "path": "components/lifeline/LifelineFloatingPhotoCard.vue",
+          "type": "registry:component",
+          "target": "components/lifeline/LifelineFloatingPhotoCard.vue"
+        },
+        {
+          "path": "components/lifeline/LifelineFloatingPhotos.vue",
+          "type": "registry:component",
+          "target": "components/lifeline/LifelineFloatingPhotos.vue"
+        },
+        {
+          "path": "components/lifeline/LifelineCollapse.vue",
+          "type": "registry:component",
+          "target": "components/lifeline/LifelineCollapse.vue"
+        },
+        {
+          "path": "components/lifeline/LifelineHoverImageProvider.vue",
+          "type": "registry:component",
+          "target": "components/lifeline/LifelineHoverImageProvider.vue"
+        },
+        {
+          "path": "components/lifeline/LifelineTracksProvider.vue",
+          "type": "registry:component",
+          "target": "components/lifeline/LifelineTracksProvider.vue"
+        },
+        {
+          "path": "components/lifeline/LifelineLightbox.vue",
+          "type": "registry:component",
+          "target": "components/lifeline/LifelineLightbox.vue"
+        },
+        {
+          "path": "components/lifeline/LifelineMarkerColumn.vue",
+          "type": "registry:component",
+          "target": "components/lifeline/LifelineMarkerColumn.vue"
+        },
+        {
+          "path": "components/lifeline/LifelinePeople.vue",
+          "type": "registry:component",
+          "target": "components/lifeline/LifelinePeople.vue"
+        },
+        {
+          "path": "components/lifeline/LifelinePhotoCard.vue",
+          "type": "registry:component",
+          "target": "components/lifeline/LifelinePhotoCard.vue"
+        },
+        {
+          "path": "components/lifeline/LifelineStickyLabels.vue",
+          "type": "registry:component",
+          "target": "components/lifeline/LifelineStickyLabels.vue"
+        },
+        {
+          "path": "components/lifeline/LifelineVertical.vue",
+          "type": "registry:component",
+          "target": "components/lifeline/LifelineVertical.vue"
+        },
+        {
+          "path": "components/lifeline/LifelineVerticalEntry.vue",
+          "type": "registry:component",
+          "target": "components/lifeline/LifelineVerticalEntry.vue"
+        },
+        {
+          "path": "components/lifeline/LifelineVerticalEvent.vue",
+          "type": "registry:component",
+          "target": "components/lifeline/LifelineVerticalEvent.vue"
+        },
+        {
+          "path": "components/lifeline/company-registry.ts",
+          "type": "registry:lib",
+          "target": "components/lifeline/company-registry.ts"
+        },
+        {
+          "path": "components/lifeline/lifeline-event-utils.ts",
+          "type": "registry:lib",
+          "target": "components/lifeline/lifeline-event-utils.ts"
+        },
+        {
+          "path": "components/lifeline/lifeline-fireworks.ts",
+          "type": "registry:lib",
+          "target": "components/lifeline/lifeline-fireworks.ts"
+        },
+        {
+          "path": "components/lifeline/lifeline-hover-image.ts",
+          "type": "registry:lib",
+          "target": "components/lifeline/lifeline-hover-image.ts"
+        },
+        {
+          "path": "components/lifeline/lifeline-tracks.ts",
+          "type": "registry:lib",
+          "target": "components/lifeline/lifeline-tracks.ts"
+        },
+        {
+          "path": "components/lifeline/lifeline-intro-timing.ts",
+          "type": "registry:lib",
+          "target": "components/lifeline/lifeline-intro-timing.ts"
+        },
+        {
+          "path": "components/lifeline/lifeline-labels-shared.ts",
+          "type": "registry:lib",
+          "target": "components/lifeline/lifeline-labels-shared.ts"
+        },
+        {
+          "path": "components/lifeline/lifeline-lightbox-types.ts",
+          "type": "registry:lib",
+          "target": "components/lifeline/lifeline-lightbox-types.ts"
+        },
+        {
+          "path": "components/lifeline/lifeline-people-utils.ts",
+          "type": "registry:lib",
+          "target": "components/lifeline/lifeline-people-utils.ts"
+        },
+        {
+          "path": "components/lifeline/lifeline-utils.ts",
+          "type": "registry:lib",
+          "target": "components/lifeline/lifeline-utils.ts"
+        },
+        {
+          "path": "components/lifeline/types.ts",
+          "type": "registry:lib",
+          "target": "components/lifeline/types.ts"
+        },
+        {
+          "path": "components/lifeline/use-lifeline-intro.ts",
+          "type": "registry:hook",
+          "target": "components/lifeline/use-lifeline-intro.ts"
+        },
+        {
+          "path": "components/lifeline/use-lifeline-scroll.ts",
+          "type": "registry:hook",
+          "target": "components/lifeline/use-lifeline-scroll.ts"
+        },
+        {
+          "path": "components/lifeline/use-lifeline-vertical-scroll.ts",
+          "type": "registry:hook",
+          "target": "components/lifeline/use-lifeline-vertical-scroll.ts"
+        },
+        {
+          "path": "components/lifeline/lifeline-theme.ts",
+          "type": "registry:component",
+          "target": "components/lifeline/lifeline-theme.ts"
+        },
+        {
+          "path": "components/lifeline/cn.ts",
+          "type": "registry:component",
+          "target": "components/lifeline/cn.ts"
+        }
+      ],
+      "css": {
+        "@keyframes lifeline-rail-draw": {
+          "from": {
+            "transform": "scaleX(0)"
+          },
+          "to": {
+            "transform": "scaleX(1)"
+          }
+        },
+        "@keyframes lifeline-marker-in": {
+          "from": {
+            "opacity": "0",
+            "transform": "translate3d(0, 6px, 0)"
+          },
+          "to": {
+            "opacity": "1",
+            "transform": "translate3d(0, 0, 0)"
+          }
+        },
+        "@keyframes lifeline-labels-in": {
+          "from": {
+            "opacity": "0"
+          },
+          "to": {
+            "opacity": "1"
+          }
+        },
+        ".lifeline-rail-intro": {
+          "transform": "scaleX(var(--lifeline-intro-progress, 0))",
+          "transform-origin": "left center"
+        },
+        ".lifeline-rail-intro-vertical": {
+          "transform": "scaleY(var(--lifeline-intro-progress, 0))",
+          "transform-origin": "top center"
+        },
+        ".lifeline-marker-intro": {
+          "opacity": "0",
+          "animation": "lifeline-marker-in var(--lifeline-marker-fade-ms, 420ms) cubic-bezier(0.22, 1, 0.36, 1) forwards"
+        },
+        ".lifeline-labels-intro": {
+          "opacity": "0",
+          "animation": "lifeline-labels-in var(--lifeline-labels-ms, 600ms) cubic-bezier(0.22, 1, 0.36, 1) forwards"
+        },
+        ".lifeline-labels.is-pinned": {
+          "z-index": "20"
+        },
+        ".lifeline-typeset": {
+          "font-family": "var(--lifeline-font, \"Geist\", \"Geist Fallback\", ui-sans-serif, system-ui, sans-serif)"
+        }
+      },
+      "docs": "Mount it with markers from defineLifeline:\n\n  <script setup lang=\"ts\">\n  import { myLifeline } from \"@/lib/lifelines/personal\"\n  </script>\n\n  <template>\n    <Lifeline\n      :markers=\"myLifeline.markers\"\n      :birth-year=\"myLifeline.birthYear\"\n      :title=\"myLifeline.name\"\n    />\n  </template>\n\nTHEMING (optional). The fireworks easter egg dims the page for the show. It asks the host via a provide/inject bridge — see lifeline-theme.ts. Provide LIFELINE_THEME with { resolved(), set() } and you get the full effect; provide nothing and the fireworks still play, undimmed.\nOn Nuxt, install the `nuxt-theme` item for a ready-made bridge.\n\nFONT (optional). Geist is assumed by .lifeline-typeset; override --lifeline-font to typeset it in something else.\n\nmode: \"page\" | \"embed\" | \"auto\" (default). Page mode owns the wheel; embed hands it back at the ends of the rail."
+    },
+    {
+      "name": "shell",
+      "type": "registry:component",
+      "title": "Lifeline shell",
+      "description": "Page framing the Lifeline expects. The rail measures its start and end from the nav's data-site-nav-logo and data-site-nav-inner.",
+      "files": [
+        {
+          "path": "components/LifelineShell.vue",
+          "type": "registry:component",
+          "target": "components/LifelineShell.vue"
+        },
+        {
+          "path": "components/LifelineNav.vue",
+          "type": "registry:component",
+          "target": "components/LifelineNav.vue"
+        },
+        {
+          "path": "components/LifelineStage.vue",
+          "type": "registry:component",
+          "target": "components/LifelineStage.vue"
+        },
+        {
+          "path": "components/LifelineFooter.vue",
+          "type": "registry:component",
+          "target": "components/LifelineFooter.vue"
+        }
+      ]
+    },
+    {
+      "name": "theme-switcher",
+      "type": "registry:component",
+      "title": "Theme switcher",
+      "description": "Light/dark toggle driving the LIFELINE_THEME bridge. Renders nothing until a bridge is provided, rather than guessing at a global.",
+      "dependencies": [
+        "@lucide/vue"
+      ],
+      "registryDependencies": [
+        "https://lifeline-peter-lewis.vercel.app/r/lifeline.json"
+      ],
+      "files": [
+        {
+          "path": "components/ThemeSwitcher.vue",
+          "type": "registry:component",
+          "target": "components/ThemeSwitcher.vue"
+        }
+      ]
+    },
+    {
+      "name": "nuxt-theme",
+      "type": "registry:component",
+      "title": "Nuxt theme bridge",
+      "description": "Supplies LIFELINE_THEME from @nuxtjs/color-mode. Nuxt only — plain Vue apps provide their own eight-line equivalent.",
+      "dependencies": [
+        "@nuxtjs/color-mode"
+      ],
+      "registryDependencies": [
+        "https://lifeline-peter-lewis.vercel.app/r/lifeline.json"
+      ],
+      "files": [
+        {
+          "path": "components/LifelineNuxtTheme.vue",
+          "type": "registry:component",
+          "target": "components/LifelineNuxtTheme.vue"
+        }
+      ],
+      "docs": "Wrap anything that reads or sets the theme:\n\n  <LifelineNuxtTheme>\n    <Lifeline ... />\n  </LifelineNuxtTheme>\n\nRenders no element of its own."
+    },
+    {
+      "name": "data",
+      "type": "registry:lib",
+      "title": "Lifeline data helper",
+      "description": "defineLifeline() expands a sparse milestone map into one marker per year, so the axis stays continuous.",
+      "files": [
+        {
+          "path": "lib/lifeline-data.ts",
+          "type": "registry:lib",
+          "target": "lib/lifeline-data.ts"
+        }
+      ]
+    },
+    {
+      "name": "personal",
+      "type": "registry:block",
+      "title": "Personal timeline",
+      "description": "A life, year by year — starter data for a personal Lifeline, with the four-track legend.",
+      "registryDependencies": [
+        "https://lifeline-peter-lewis.vercel.app/r/lifeline.json",
+        "https://lifeline-peter-lewis.vercel.app/r/data.json"
+      ],
+      "files": [
+        {
+          "path": "lib/peter.ts",
+          "type": "registry:lib",
+          "target": "lib/lifelines/personal.ts"
+        }
+      ]
+    },
+    {
+      "name": "platform-icons",
+      "type": "registry:block",
+      "title": "Platform icons",
+      "description": "Example of registering your own brand marks into CompanyIcon. Unregistered ids fall back to an initial in a ring.",
+      "registryDependencies": [
+        "https://lifeline-peter-lewis.vercel.app/r/lifeline.json"
+      ],
+      "files": [
+        {
+          "path": "plugins/lifeline-platform-icons.ts",
+          "type": "registry:file",
+          "target": "plugins/lifeline-platform-icons.ts"
+        }
+      ]
+    },
+    {
+      "name": "page",
+      "type": "registry:page",
+      "title": "Lifeline page",
+      "description": "The full page: shell, nav, timeline, footer legend and credits link.",
+      "registryDependencies": [
+        "https://lifeline-peter-lewis.vercel.app/r/lifeline.json",
+        "https://lifeline-peter-lewis.vercel.app/r/shell.json",
+        "https://lifeline-peter-lewis.vercel.app/r/theme-switcher.json",
+        "https://lifeline-peter-lewis.vercel.app/r/nuxt-theme.json",
+        "https://lifeline-peter-lewis.vercel.app/r/personal.json"
+      ],
+      "files": [
+        {
+          "path": "pages/index.vue",
+          "type": "registry:page",
+          "target": "pages/index.vue"
+        }
+      ]
+    }
+  ]
+}

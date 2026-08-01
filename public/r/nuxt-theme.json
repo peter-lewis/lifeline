@@ -1,0 +1,22 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "nuxt-theme",
+  "title": "Nuxt theme bridge",
+  "description": "Supplies LIFELINE_THEME from @nuxtjs/color-mode. Nuxt only — plain Vue apps provide their own eight-line equivalent.",
+  "dependencies": [
+    "@nuxtjs/color-mode"
+  ],
+  "registryDependencies": [
+    "https://lifeline-peter-lewis.vercel.app/r/lifeline.json"
+  ],
+  "files": [
+    {
+      "path": "components/LifelineNuxtTheme.vue",
+      "content": "<script setup lang=\"ts\">\nimport { provide } from \"vue\"\nimport { LIFELINE_THEME } from \"@/components/lifeline/lifeline-theme\"\n\n/**\n * The Nuxt adapter — and the only file in this project that knows Nuxt\n * exists. Wrap anything that should be able to read or change the theme:\n *\n *   <LifelineNuxtTheme>\n *     <Lifeline ... />\n *   </LifelineNuxtTheme>\n *\n * A plain Vue app writes its own eight-line equivalent against whatever\n * it already uses (VueUse's useDark, a Pinia store, a class on <html>)\n * and provides LIFELINE_THEME the same way. The timeline itself has no\n * opinion beyond the two methods.\n */\nconst colorMode = useColorMode()\n\nprovide(LIFELINE_THEME, {\n  resolved: () => (colorMode.value === \"dark\" ? \"dark\" : \"light\"),\n  set: (theme) => {\n    colorMode.preference = theme\n  },\n})\n</script>\n\n<template>\n  <slot />\n</template>\n",
+      "type": "registry:component",
+      "target": "components/LifelineNuxtTheme.vue"
+    }
+  ],
+  "docs": "Wrap anything that reads or sets the theme:\n\n  <LifelineNuxtTheme>\n    <Lifeline ... />\n  </LifelineNuxtTheme>\n\nRenders no element of its own.",
+  "type": "registry:component"
+}

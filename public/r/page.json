@@ -1,0 +1,22 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "page",
+  "title": "Lifeline page",
+  "description": "The full page: shell, nav, timeline, footer legend and credits link.",
+  "registryDependencies": [
+    "https://lifeline-peter-lewis.vercel.app/r/lifeline.json",
+    "https://lifeline-peter-lewis.vercel.app/r/shell.json",
+    "https://lifeline-peter-lewis.vercel.app/r/theme-switcher.json",
+    "https://lifeline-peter-lewis.vercel.app/r/nuxt-theme.json",
+    "https://lifeline-peter-lewis.vercel.app/r/personal.json"
+  ],
+  "files": [
+    {
+      "path": "pages/index.vue",
+      "content": "<script setup lang=\"ts\">\nimport { peterLifeline } from \"~/lib/peter\"\n\n/**\n * This site's own source. The repo is currently private, so this link\n * 404s for anyone signed out — it resolves the moment it goes public.\n */\nconst REPO = \"https://github.com/peter-lewis/lifeline\"\n</script>\n\n<template>\n  <LifelineShell>\n    <!--\n      Track filtering. The provider wraps the whole page rather than just\n      the stage: the switches live in the footer legend and the events\n      they control live in the timeline, so it has to sit above both. It\n      renders no element of its own either.\n    -->\n    <LifelineTracksProvider>\n      <!--\n        The only Nuxt-aware component on the page. It provides the theme\n        bridge that the fireworks easter egg and the switcher read, and\n        renders no element of its own — so the shell's flex layout still\n        sees nav / stage / footer as direct children.\n      -->\n      <LifelineNuxtTheme>\n        <!-- One nav item, matching upstream. The nav's capped inner\n             container is also what the rail aligns its start and end to. -->\n        <LifelineNav logo-href=\"/\" logo-label=\"Peter Lewis — Lifeline\">\n          <template #logo>\n            <PeterLogo class=\"h-5 w-auto\" />\n          </template>\n\n          <a\n            :href=\"REPO\"\n            target=\"_blank\"\n            rel=\"noopener noreferrer\"\n            class=\"text-sm text-zinc-500 transition-colors duration-300 hover:text-black dark:hover:text-white\"\n          >\n            GitHub\n          </a>\n        </LifelineNav>\n\n        <LifelineStage>\n          <Lifeline\n            :markers=\"peterLifeline.markers\"\n            :birth-year=\"peterLifeline.birthYear\"\n            :title=\"peterLifeline.name\"\n            class=\"h-full\"\n          />\n        </LifelineStage>\n\n        <!--\n          Legend keys the three event dots. Credits sits here rather than in\n          the nav: the CC BY / CC BY-SA images require attribution, so the\n          link has to stay reachable even as the chrome gets minimal.\n        -->\n        <LifelineFooter>\n          <div class=\"flex items-center gap-6\">\n            <ThemeSwitcher />\n            <LifelineLegend />\n            <NuxtLink\n              to=\"/credits\"\n              class=\"hidden text-[13px] text-zinc-500 transition-colors duration-300 hover:text-black sm:block dark:hover:text-white\"\n            >\n              Credits\n            </NuxtLink>\n          </div>\n          <CopyCommand\n            command=\"npx shadcn-vue add https://lifeline-peter-lewis.vercel.app/r/personal.json\"\n          />\n        </LifelineFooter>\n      </LifelineNuxtTheme>\n    </LifelineTracksProvider>\n  </LifelineShell>\n</template>\n",
+      "type": "registry:page",
+      "target": "pages/index.vue"
+    }
+  ],
+  "type": "registry:page"
+}

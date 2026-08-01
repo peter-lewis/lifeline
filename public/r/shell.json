@@ -1,0 +1,33 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "shell",
+  "title": "Lifeline shell",
+  "description": "Page framing the Lifeline expects. The rail measures its start and end from the nav's data-site-nav-logo and data-site-nav-inner.",
+  "files": [
+    {
+      "path": "components/LifelineShell.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from \"@/components/lifeline/cn\"\n\n/**\n * The page framing the Lifeline expects.\n *\n * The rail is not sized by CSS — on desktop it measures where to start\n * and end from the nav: `data-site-nav-logo` gives it the start, and the\n * right edge of `data-site-nav-inner` gives it the end. That is what\n * keeps the timeline inset from the viewport and aligned with the rest\n * of the page, and it's the span the intro animation draws across.\n *\n * Drop the nav entirely and the rail falls back to filling its own\n * container, edge to edge.\n */\nconst props = defineProps<{ class?: string }>()\n</script>\n\n<template>\n  <div\n    :class=\"\n      cn(\n        'flex h-dvh flex-col overflow-hidden bg-white text-black antialiased transition-colors duration-300 dark:bg-black dark:text-white',\n        props.class,\n      )\n    \"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:component",
+      "target": "components/LifelineShell.vue"
+    },
+    {
+      "path": "components/LifelineNav.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from \"@/components/lifeline/cn\"\n\nconst CONTAINER = \"mx-auto flex w-full max-w-5xl items-center px-6\"\n\nconst props = withDefaults(\n  defineProps<{\n    logoHref?: string\n    /** Accessible name for the logo link. */\n    logoLabel?: string\n    class?: string\n    containerClass?: string\n  }>(),\n  { logoHref: \"/\", logoLabel: \"Home\" },\n)\n</script>\n\n<template>\n  <nav\n    :class=\"\n      cn(\n        'fixed inset-x-0 top-0 z-50 border-b border-black/10 bg-white/80 backdrop-blur-xl transition-colors duration-300 dark:border-white/10 dark:bg-black/80',\n        props.class,\n      )\n    \"\n  >\n    <div\n      data-site-nav-inner\n      :class=\"cn(CONTAINER, 'h-16 justify-between', props.containerClass)\"\n    >\n      <!-- The rail measures its start from this anchor's left edge. -->\n      <a\n        :href=\"props.logoHref\"\n        data-site-nav-logo\n        :aria-label=\"props.logoLabel\"\n        class=\"text-black transition-[color,opacity] duration-300 hover:opacity-70 dark:text-white\"\n      >\n        <slot name=\"logo\" />\n      </a>\n\n      <div v-if=\"$slots.default\" class=\"flex items-center gap-8\">\n        <slot />\n      </div>\n    </div>\n  </nav>\n</template>\n",
+      "type": "registry:component",
+      "target": "components/LifelineNav.vue"
+    },
+    {
+      "path": "components/LifelineStage.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from \"@/components/lifeline/cn\"\n\n/**\n * The stage. `pt-16` clears the fixed nav; `md:overflow-hidden` hands\n * scrolling to the horizontal scrub above the mobile breakpoint.\n */\nconst props = defineProps<{ class?: string }>()\n</script>\n\n<template>\n  <main\n    :class=\"\n      cn('flex-1 min-h-0 overflow-y-auto pt-16 md:overflow-hidden', props.class)\n    \"\n  >\n    <slot />\n  </main>\n</template>\n",
+      "type": "registry:component",
+      "target": "components/LifelineStage.vue"
+    },
+    {
+      "path": "components/LifelineFooter.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from \"@/components/lifeline/cn\"\n\nconst CONTAINER = \"mx-auto flex w-full max-w-5xl items-center px-6\"\n\nconst props = defineProps<{ class?: string; containerClass?: string }>()\n</script>\n\n<template>\n  <footer\n    :class=\"\n      cn(\n        'shrink-0 border-t border-black/10 bg-white/95 backdrop-blur-sm transition-colors duration-300 dark:border-white/10 dark:bg-black/95',\n        props.class,\n      )\n    \"\n  >\n    <div\n      :class=\"cn(CONTAINER, 'h-16 justify-between gap-6', props.containerClass)\"\n    >\n      <slot />\n    </div>\n  </footer>\n</template>\n",
+      "type": "registry:component",
+      "target": "components/LifelineFooter.vue"
+    }
+  ],
+  "type": "registry:component"
+}

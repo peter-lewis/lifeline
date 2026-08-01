@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Geist, self-hosted from the `geist` package rather than fetched at
+ * runtime. `swap` + the metric-matched fallback below keep the dense
+ * year labels from reflowing once the real face lands.
+ */
+@font-face {
+  font-family: "Geist";
+  src: url("/fonts/Geist-Variable.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Fallback";
+  src: local("Helvetica Neue"), local("Arial");
+  ascent-override: 95%;
+  descent-override: 25%;
+  line-gap-override: 0%;
+  size-adjust: 100%;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
+  --font-heading: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  --color-ring: var(--ring);
+  --color-border: var(--border);
+  --color-muted-foreground: var(--muted-foreground);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+}
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --border: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --radius: 0.625rem;
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --border: oklch(1 0 0 / 10%);
+  --ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    @apply h-full font-sans antialiased;
+  }
+  body {
+    @apply flex min-h-full flex-col bg-background text-foreground;
+  }
+}
+
+/*
+ * The timeline carries its own font stack rather than inheriting the
+ * host's `font-sans`. A shadcn init writes a self-referential
+ * `--font-sans` into the theme block, which resolves to the browser
+ * serif, and the timeline is dense enough that the wrong face is the
+ * first thing you notice. Override `--lifeline-font` to typeset it in
+ * something else.
+ */
+.lifeline-typeset {
+  font-family: var(
+    --lifeline-font,
+    "Geist",
+    "Geist Fallback",
+    ui-sans-serif,
+    system-ui,
+    sans-serif
+  );
+}
+
+/* Lifeline — intro animation plumbing */
+@keyframes lifeline-rail-draw {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes lifeline-marker-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 6px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes lifeline-labels-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.lifeline-rail-intro {
+  transform: scaleX(var(--lifeline-intro-progress, 0));
+  transform-origin: left center;
+}
+
+.lifeline-rail-intro-vertical {
+  transform: scaleY(var(--lifeline-intro-progress, 0));
+  transform-origin: top center;
+}
+
+.lifeline-marker-intro {
+  opacity: 0;
+  animation: lifeline-marker-in var(--lifeline-marker-fade-ms, 420ms)
+    cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.lifeline-labels-intro {
+  opacity: 0;
+  animation: lifeline-labels-in var(--lifeline-labels-ms, 600ms)
+    cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.lifeline-labels.is-pinned {
+  z-index: 20;
+}

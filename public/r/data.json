@@ -1,0 +1,15 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "data",
+  "title": "Lifeline data helper",
+  "description": "defineLifeline() expands a sparse milestone map into one marker per year, so the axis stays continuous.",
+  "files": [
+    {
+      "path": "lib/lifeline-data.ts",
+      "content": "import type {\n  LifelineLegendItem,\n  LifelineMarker,\n} from \"@/components/lifeline/types\"\n\nexport const LIFELINE_CURRENT_YEAR = 2026\n\nexport type LifelineMilestone = Omit<LifelineMarker, \"year\">\nexport type LifelineMilestones = Record<number, LifelineMilestone>\n\nexport interface LifelineRecord {\n  slug: string\n  name: string\n  birthYear: number\n  /** Last year on the timeline. Omit for living people. */\n  endYear?: number\n  description: string\n  /** People-legend labels; defaults to Mentors / Met in person. */\n  legend?: LifelineLegendItem[]\n  markers: LifelineMarker[]\n}\n\ninterface DefineLifelineInput {\n  slug: string\n  name: string\n  birthYear: number\n  endYear?: number\n  description: string\n  legend?: LifelineLegendItem[]\n  milestones: LifelineMilestones\n}\n\n/**\n * Expands a sparse milestone map into one marker per year, so the axis is\n * continuous and the empty years still take up (narrow) space on the rail.\n */\nexport function defineLifeline(input: DefineLifelineInput): LifelineRecord {\n  const { milestones, ...record } = input\n  const lastYear = input.endYear ?? LIFELINE_CURRENT_YEAR\n  const markers: LifelineMarker[] = []\n\n  for (let year = input.birthYear; year <= lastYear; year++) {\n    const milestone = milestones[year]\n\n    markers.push(\n      milestone\n        ? { year, ...milestone }\n        : { id: `year-${year}`, year, events: [] },\n    )\n  }\n\n  return { ...record, markers }\n}\n",
+      "type": "registry:lib",
+      "target": "lib/lifeline-data.ts"
+    }
+  ],
+  "type": "registry:lib"
+}

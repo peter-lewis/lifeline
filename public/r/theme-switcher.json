@@ -1,0 +1,21 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "theme-switcher",
+  "title": "Theme switcher",
+  "description": "Light/dark toggle driving the LIFELINE_THEME bridge. Renders nothing until a bridge is provided, rather than guessing at a global.",
+  "dependencies": [
+    "@lucide/vue"
+  ],
+  "registryDependencies": [
+    "https://lifeline-peter-lewis.vercel.app/r/lifeline.json"
+  ],
+  "files": [
+    {
+      "path": "components/ThemeSwitcher.vue",
+      "content": "<script setup lang=\"ts\">\nimport { computed, onMounted, ref } from \"vue\"\nimport { Moon, Sun } from \"@lucide/vue\"\nimport { useLifelineTheme } from \"@/components/lifeline/lifeline-theme\"\n\n/**\n * Drives whatever theme bridge the host provided (see lifeline-theme.ts).\n * Renders nothing if none is wired up, rather than guessing at a global.\n */\nconst theme = useLifelineTheme()\nconst mounted = ref(false)\n\nonMounted(() => {\n  mounted.value = true\n})\n\nconst isDark = computed(() => theme?.resolved() === \"dark\")\n\nfunction toggle() {\n  theme?.set(isDark.value ? \"light\" : \"dark\")\n}\n</script>\n\n<template>\n  <!-- Reserve the box until the resolved theme is known, so the footer\n       row doesn't reflow on hydration. -->\n  <span v-if=\"!mounted || !theme\" class=\"inline-block h-4 w-4\" aria-hidden=\"true\" />\n  <button\n    v-else\n    type=\"button\"\n    :aria-label=\"isDark ? 'Switch to light theme' : 'Switch to dark theme'\"\n    class=\"inline-flex items-center p-0 text-zinc-500 transition-colors duration-300 hover:text-black dark:hover:text-white\"\n    @click=\"toggle\"\n  >\n    <Sun v-if=\"isDark\" class=\"h-4 w-4\" :stroke-width=\"1.75\" />\n    <Moon v-else class=\"h-4 w-4\" :stroke-width=\"1.75\" />\n  </button>\n</template>\n",
+      "type": "registry:component",
+      "target": "components/ThemeSwitcher.vue"
+    }
+  ],
+  "type": "registry:component"
+}
