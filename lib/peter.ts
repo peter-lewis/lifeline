@@ -45,7 +45,7 @@ const record = defineLifeline({
         {
           track: "tech",
           image: {
-            src: "/images/hardware/macintosh.png",
+            src: "/images/hardware/macintosh.webp",
             alt: "An original Macintosh 128K",
           },
           text: "My father brought an original Macintosh home for work — the first computer I ever used.",
@@ -57,7 +57,7 @@ const record = defineLifeline({
         {
           track: "tech",
           image: {
-            src: "/images/hardware/atari-2600.jpg",
+            src: "/images/hardware/atari-2600.webp",
             alt: "The Atari 2600 with its joystick",
           },
           text: "Asteroids on the family Atari 2600. My first console game.",
@@ -80,7 +80,7 @@ const record = defineLifeline({
         {
           track: "tech",
           image: {
-            src: "/images/hardware/nes.jpg",
+            src: "/images/hardware/nes.webp",
             alt: "The Nintendo Entertainment System and controller",
           },
           text: "A NES under the tree on Christmas morning — the first console that was mine.",
@@ -101,7 +101,7 @@ const record = defineLifeline({
       events: [
         {
           track: "tech",
-          image: { src: "/images/hardware/game-boy.jpg", alt: "The original Game Boy" },
+          image: { src: "/images/hardware/game-boy.webp", alt: "The original Game Boy" },
           text: "A Game Boy in March.",
         },
         {
@@ -126,7 +126,7 @@ const record = defineLifeline({
       events: [
         {
           track: "tech",
-          image: { src: "/images/hardware/snes.jpg", alt: "The Super Nintendo Entertainment System" },
+          image: { src: "/images/hardware/snes.webp", alt: "The Super Nintendo Entertainment System" },
           text: "Super Nintendo, Christmas morning.",
         },
         {
@@ -175,14 +175,14 @@ const record = defineLifeline({
         {
           track: "tech",
           image: {
-            src: "/images/hardware/game-gear.jpg",
+            src: "/images/hardware/game-gear.webp",
             alt: "The Sega Game Gear",
           },
           text: "A Sega Game Gear in June.",
         },
         {
           track: "tech",
-          image: { src: "/images/hardware/n64.png", alt: "The Nintendo 64 and controller" },
+          image: { src: "/images/hardware/n64.webp", alt: "The Nintendo 64 and controller" },
           text: "Nintendo 64, Christmas morning.",
         },
         {
@@ -216,7 +216,7 @@ const record = defineLifeline({
           // desktop and taps open into the lightbox on mobile, costing no
           // layout at all.
           image: {
-            src: "/images/first-website-1997.png",
+            src: "/images/first-website-1997.webp",
             alt: "Peters Wonderful Website, captured by the Internet Archive in 1999",
           },
           text: [
@@ -256,7 +256,7 @@ const record = defineLifeline({
       events: [
         {
           track: "tech",
-          image: { src: "/images/hardware/game-boy-color.jpg", alt: "The Game Boy Color" },
+          image: { src: "/images/hardware/game-boy-color.webp", alt: "The Game Boy Color" },
           text: "Game Boy Color, Christmas.",
         },
         {
@@ -279,7 +279,7 @@ const record = defineLifeline({
       events: [
         {
           track: "tech",
-          image: { src: "/images/hardware/dreamcast.png", alt: "The Sega Dreamcast and controller" },
+          image: { src: "/images/hardware/dreamcast.webp", alt: "The Sega Dreamcast and controller" },
           text: "Sega Dreamcast, Christmas.",
         },
         {
@@ -336,14 +336,14 @@ const record = defineLifeline({
       events: [
         {
           track: "tech",
-          image: { src: "/images/hardware/game-boy-advance.jpg", alt: "The Game Boy Advance" },
+          image: { src: "/images/hardware/game-boy-advance.webp", alt: "The Game Boy Advance" },
           text: "Game Boy Advance that summer.",
         },
         {
           track: "tech",
           effect: "fireworks",
           image: {
-            src: "/images/hardware/xbox-original.jpg",
+            src: "/images/hardware/xbox-original.webp",
             alt: "The original Xbox with the Duke controller",
           },
           text: "Won an Xbox in October from a Taco Bell promotion — a month before it reached stores.",
@@ -430,7 +430,7 @@ const record = defineLifeline({
       companies: [{ id: "nintendo", name: "Nintendo", track: "tech" }],
       events: [{
           track: "tech",
-          image: { src: "/images/hardware/nintendo-ds.jpg", alt: "The original Nintendo DS" },
+          image: { src: "/images/hardware/nintendo-ds.webp", alt: "The original Nintendo DS" },
           text: "Nintendo DS, Christmas.",
         }],
     },
@@ -464,7 +464,7 @@ const record = defineLifeline({
         },
         {
           track: "tech",
-          image: { src: "/images/hardware/xbox-360.jpg", alt: "The Xbox 360 and controller" },
+          image: { src: "/images/hardware/xbox-360.webp", alt: "The Xbox 360 and controller" },
           text: "Xbox 360 on launch day, 22 November.",
         },
         {
@@ -498,7 +498,7 @@ const record = defineLifeline({
       companies: [{ id: "nintendo", name: "Nintendo", track: "tech" }],
       events: [{
           track: "tech",
-          image: { src: "/images/hardware/wii.jpg", alt: "The Nintendo Wii with Wii Remote" },
+          image: { src: "/images/hardware/wii.webp", alt: "The Nintendo Wii with Wii Remote" },
           text: "Nintendo Wii, Christmas.",
         },
         {
@@ -626,7 +626,7 @@ const record = defineLifeline({
         {
           track: "tech",
           image: {
-            src: "/images/hardware/xbox-one.jpg",
+            src: "/images/hardware/xbox-one.webp",
             alt: "The Xbox One with Kinect",
           },
           text: "Xbox One on launch day, 22 November — eight years to the day after the 360.",
@@ -663,7 +663,7 @@ const record = defineLifeline({
           // so there is no text-free run for the automatic centring to use.
           // Sits below this column's own events instead.
           track: "work",
-          src: "/images/harland-clarke-datacenter-2014.jpg",
+          src: "/images/harland-clarke-datacenter-2014.webp",
           alt: "Me at Harland Clarke Information Technology, on a tour of their data centre, July 2014",
           width: 135,
           x: 0.04,
@@ -688,7 +688,7 @@ const record = defineLifeline({
       photos: [
         {
           track: "work",
-          src: "/images/harland-clarke-awards-2015.jpg",
+          src: "/images/harland-clarke-awards-2015.webp",
           alt: "Harland Clarke awards on my desk: Pillar of Excellence 2012 for customer focus, and 2015 Rock Star",
           width: 150,
           x: 0.04,
@@ -717,7 +717,7 @@ const record = defineLifeline({
       events: [
         {
           track: "tech",
-          image: { src: "/images/hardware/switch.jpg", alt: "The Nintendo Switch in its dock" },
+          image: { src: "/images/hardware/switch.webp", alt: "The Nintendo Switch in its dock" },
           text: "Nintendo Switch on launch day, 3 March.",
         },
         {
@@ -751,7 +751,7 @@ const record = defineLifeline({
         {
           track: "work",
           image: {
-            src: "/images/glg-first-day-badge-2019.jpg",
+            src: "/images/glg-first-day-badge-2019.webp",
             alt: "My GLG badge, 1 July 2019",
           },
           text: [
@@ -809,7 +809,7 @@ const record = defineLifeline({
       events: [
         {
           track: "tech",
-          image: { src: "/images/hardware/xbox-series-x.jpg", alt: "The Xbox Series X" },
+          image: { src: "/images/hardware/xbox-series-x.webp", alt: "The Xbox Series X" },
           text: "Xbox Series X in February.",
         },
         { track: "tech", text: "An Apple MacBook Air — the M1." },
@@ -886,7 +886,7 @@ const record = defineLifeline({
       events: [
         {
           track: "tech",
-          image: { src: "/images/hardware/switch-2.jpg", alt: "The Nintendo Switch 2 in its dock" },
+          image: { src: "/images/hardware/switch-2.webp", alt: "The Nintendo Switch 2 in its dock" },
           text: "Nintendo Switch 2 on launch day, 5 June.",
         },
         {

@@ -37,9 +37,44 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: SITE_TITLE,
+      /**
+       * Without this the document has no declared language at all, which
+       * costs a Lighthouse accessibility point and, worse, leaves screen
+       * readers to guess a voice for 173 events of English prose.
+       */
+      htmlAttrs: { lang: "en" },
+      /**
+       * Marks the document as script-capable before the body paints, so
+       * `.js .lifeline-static` can hide the server-rendered biography
+       * that `LifelineStatic` ships for crawlers. Inline and synchronous
+       * on purpose — deferred, the static document would paint for a
+       * frame before hydration swapped in the timeline.
+       */
+      script: [
+        { innerHTML: "document.documentElement.classList.add('js')" },
+      ],
       link: [
         { rel: "icon", type: "image/svg+xml", href: "/icon.svg" },
-        { rel: "canonical", href: SITE_URL },
+        /**
+         * Geist is otherwise discovered only when the stylesheet is
+         * parsed and the @font-face is matched, which puts it a full
+         * round trip behind the CSS. It typesets every word on the
+         * timeline, so that delay lands directly on LCP.
+         * `crossorigin` is required even same-origin: fonts are fetched
+         * in CORS mode, and without it the preload is discarded and
+         * fetched a second time.
+         */
+        {
+          rel: "preload",
+          as: "font",
+          type: "font/woff2",
+          href: "/fonts/Geist-Variable.woff2",
+          crossorigin: "anonymous",
+        },
+        // NOTE: canonical is deliberately NOT here. In `app.head` it
+        // applies to every route, so /credits declared itself a duplicate
+        // of the homepage and asked to be dropped from the index. Each
+        // page sets its own via `useHead`.
       ],
       /**
        * Absolute URLs throughout: crawlers do not resolve relative paths,

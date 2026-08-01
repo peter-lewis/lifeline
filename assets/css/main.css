@@ -88,6 +88,23 @@
   );
 }
 
+/*
+ * The server-rendered document behind the timeline (LifelineStatic).
+ *
+ * It exists so the biography is in the HTML for anything that doesn't run
+ * scripts. A browser does run scripts, and would otherwise paint this
+ * document for one frame before hydration replaced it with the timeline —
+ * so the inline script in `nuxt.config.ts` marks <html class="js"> before
+ * the body paints, and it never shows.
+ *
+ * Deliberately `display: none` and not `visibility: hidden`: this must
+ * take up no space at all in the brief window before Vue removes it.
+ * Anything that skips the script still gets the document, visible.
+ */
+.js .lifeline-static {
+  display: none;
+}
+
 /* Lifeline — intro animation plumbing */
 @keyframes lifeline-rail-draw {
   from {

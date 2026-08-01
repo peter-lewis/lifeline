@@ -18,6 +18,7 @@ const entry = computed(() => getCompanyIcon(props.id))
         props.class,
       )
     "
+    role="img"
     :aria-label="props.label"
     :title="props.label"
   >
@@ -26,8 +27,15 @@ const entry = computed(() => getCompanyIcon(props.id))
 
   <!-- Unregistered ids fall back to the name's initial in a small ring,
        so a timeline reads cleanly before you've drawn a single logo. -->
+  <!--
+    `role="img"` on both branches, because a bare <span> is a generic
+    element and ARIA prohibits naming those — the aria-label is dropped
+    on the floor and the logo goes out unlabelled. The role is what makes
+    it a named image instead.
+  -->
   <span
     v-else
+    role="img"
     :title="props.label"
     :aria-label="props.label"
     :class="

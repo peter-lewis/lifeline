@@ -135,5 +135,12 @@ export interface LifelineProps {
   birthYear: number
   class?: string
   title?: string
+  /**
+   * One-line summary of whose timeline this is. Used only by the
+   * server-rendered `LifelineStatic` view, where it becomes the lead
+   * paragraph under the <h1> — the sentence a search engine is most
+   * likely to quote back.
+   */
+  description?: string
   mode?: LifelineMode
 }

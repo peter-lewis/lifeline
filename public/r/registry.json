@@ -7,7 +7,7 @@
       "name": "lifeline",
       "type": "registry:block",
       "title": "Lifeline",
-      "description": "A horizontal, scrub-driven timeline for stories that unfold over time. Plain Vue 3 — no framework coupling. Vue port of evilrabbit/lifeline.",
+      "description": "A horizontal, scrub-driven timeline for stories that unfold over time. Plain Vue 3 \u2014 no framework coupling. Vue port of evilrabbit/lifeline.",
       "dependencies": [
         "@lucide/vue",
         "clsx",
@@ -98,6 +98,11 @@
           "path": "components/lifeline/LifelinePhotoCard.vue",
           "type": "registry:component",
           "target": "components/lifeline/LifelinePhotoCard.vue"
+        },
+        {
+          "path": "components/lifeline/LifelineStatic.vue",
+          "type": "registry:component",
+          "target": "components/lifeline/LifelineStatic.vue"
         },
         {
           "path": "components/lifeline/LifelineStickyLabels.vue",
@@ -250,7 +255,7 @@
           "font-family": "var(--lifeline-font, \"Geist\", \"Geist Fallback\", ui-sans-serif, system-ui, sans-serif)"
         }
       },
-      "docs": "Mount it with markers from defineLifeline:\n\n  <script setup lang=\"ts\">\n  import { myLifeline } from \"@/lib/lifelines/personal\"\n  </script>\n\n  <template>\n    <Lifeline\n      :markers=\"myLifeline.markers\"\n      :birth-year=\"myLifeline.birthYear\"\n      :title=\"myLifeline.name\"\n    />\n  </template>\n\nTHEMING (optional). The fireworks easter egg dims the page for the show. It asks the host via a provide/inject bridge — see lifeline-theme.ts. Provide LIFELINE_THEME with { resolved(), set() } and you get the full effect; provide nothing and the fireworks still play, undimmed.\nOn Nuxt, install the `nuxt-theme` item for a ready-made bridge.\n\nFONT (optional). Geist is assumed by .lifeline-typeset; override --lifeline-font to typeset it in something else.\n\nmode: \"page\" | \"embed\" | \"auto\" (default). Page mode owns the wheel; embed hands it back at the ends of the rail."
+      "docs": "Mount it with markers from defineLifeline:\n\n  <script setup lang=\"ts\">\n  import { myLifeline } from \"@/lib/lifelines/personal\"\n  </script>\n\n  <template>\n    <Lifeline\n      :markers=\"myLifeline.markers\"\n      :birth-year=\"myLifeline.birthYear\"\n      :title=\"myLifeline.name\"\n    />\n  </template>\n\nTHEMING (optional). The fireworks easter egg dims the page for the show. It asks the host via a provide/inject bridge \u2014 see lifeline-theme.ts. Provide LIFELINE_THEME with { resolved(), set() } and you get the full effect; provide nothing and the fireworks still play, undimmed.\nOn Nuxt, install the `nuxt-theme` item for a ready-made bridge.\n\nFONT (optional). Geist is assumed by .lifeline-typeset; override --lifeline-font to typeset it in something else.\n\nmode: \"page\" | \"embed\" | \"auto\" (default). Page mode owns the wheel; embed hands it back at the ends of the rail."
     },
     {
       "name": "shell",
@@ -303,7 +308,7 @@
       "name": "nuxt-theme",
       "type": "registry:component",
       "title": "Nuxt theme bridge",
-      "description": "Supplies LIFELINE_THEME from @nuxtjs/color-mode. Nuxt only — plain Vue apps provide their own eight-line equivalent.",
+      "description": "Supplies LIFELINE_THEME from @nuxtjs/color-mode. Nuxt only \u2014 plain Vue apps provide their own eight-line equivalent.",
       "dependencies": [
         "@nuxtjs/color-mode"
       ],
@@ -336,7 +341,7 @@
       "name": "personal",
       "type": "registry:block",
       "title": "Personal timeline",
-      "description": "A life, year by year — starter data for a personal Lifeline, with the four-track legend.",
+      "description": "A life, year by year \u2014 starter data for a personal Lifeline, with the four-track legend.",
       "registryDependencies": [
         "https://www.peterlewis.dev/r/lifeline.json",
         "https://www.peterlewis.dev/r/data.json"

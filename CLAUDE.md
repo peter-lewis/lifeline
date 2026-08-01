@@ -5,8 +5,13 @@ shadcn-vue registry that publishes the component behind it. A change to
 the content ships to a real biography; a change to the components ships to
 anyone who installs the registry. Both are public.
 
-Live at <https://www.peterlewis.dev> (`lifeline-nuxt.vercel.app`
-still resolves and should keep working).
+Live at <https://www.peterlewis.dev>, and that is the **only** indexable
+host. `peterlewis.dev` 308s to it; the old `lifeline-nuxt.vercel.app`,
+`lifeline-peter-lewis.vercel.app` and `lifeline-five-alpha.vercel.app`
+aliases were deleted. Vercel regenerates its own project and branch URLs
+on every deploy, so `server/middleware/canonical-host.ts` serves
+`X-Robots-Tag: noindex` on any host that isn't `www.peterlewis.dev`.
+Previews keep working; they just stay out of search.
 
 ## Adding to the timeline
 
@@ -68,6 +73,25 @@ problems in this repo.
   short factual sentences, no salesmanship, no summarising flourish.
 - Spans go on the year they *start*, phrased to carry the end
   ("…and ran it until we moved in 2021"), because the axis is years.
+
+## The site has to be readable without JavaScript
+
+Both interactive layouts hold themselves at `visibility: hidden` until
+they have measured the viewport, so neither can be server-rendered — a
+crawler would get the whole biography inside a hidden box. The server
+renders **`components/lifeline/LifelineStatic.vue`** instead: the same
+`markers` array as a plain document, with an `h1`, an `h2` per year, and
+real `<img>` tags.
+
+`Lifeline.vue` renders it in the `isMobile === null` branch — the only
+state the server ever sees. **That branch is the entire page as far as
+Google is concerned.** It was once an empty `aria-hidden` div, and the
+site sat unindexed with 98 characters of body text. Don't put it back.
+
+Browsers never see it: an inline script in `nuxt.config.ts` sets
+`html.js` before the body paints and `.js .lifeline-static` is
+`display: none`. If you add a field to `LifelineMarker`, add it here too
+or it silently stops being indexable.
 
 ## After any change
 
@@ -150,6 +174,12 @@ Three ways browser checks have lied in this repo:
   its destination from the width arrays and only writes a transform.
 
 ## Images and licensing
+
+Everything under `public/images/` is **WebP**, and new images should be
+too — the originals were 5.5 MB of JPEG/PNG and are now 888 KB. Hover
+images display at most 280×320 CSS px, so cap those at ~1000px on the
+long side; the `photos` cards open in the lightbox, so those get 1600px.
+`public/og.png` stays a PNG: not every social scraper reads WebP.
 
 Hardware photography is Wikimedia Commons, and must be public domain, CC0,
 CC BY, or CC BY-SA. CC BY and CC BY-SA carry a legal attribution

@@ -6,6 +6,49 @@ import { peterLifeline } from "~/lib/peter"
  * 404s for anyone signed out — it resolves the moment it goes public.
  */
 const REPO = "https://github.com/peter-lewis/lifeline"
+
+const SITE_URL = "https://www.peterlewis.dev"
+
+/**
+ * Every profile here is one Peter Lewis has confirmed as his. `sameAs` is
+ * how Google ties this page to an existing entity, so a wrong or
+ * aspirational URL doesn't just fail — it merges him with someone else.
+ * The name is heavily contested (an insurance chairman, a Moby Grape
+ * founder, an announcer), which is also why jobTitle and worksFor are
+ * here: they are the fields that actually do the disambiguating.
+ */
+const PROFILES = [
+  "https://github.com/peter-lewis",
+  "https://www.linkedin.com/in/peternlewis",
+]
+
+useHead({
+  link: [{ rel: "canonical", href: SITE_URL }],
+  script: [
+    {
+      type: "application/ld+json",
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        mainEntity: {
+          "@type": "Person",
+          name: peterLifeline.name,
+          url: SITE_URL,
+          image: `${SITE_URL}/og.png`,
+          description: peterLifeline.description,
+          jobTitle: "Director of Software Engineering",
+          worksFor: { "@type": "Organization", name: "GLG" },
+          birthDate: String(peterLifeline.birthYear),
+          birthPlace: {
+            "@type": "Place",
+            name: "Raleigh, North Carolina",
+          },
+          sameAs: PROFILES,
+        },
+      }),
+    },
+  ],
+})
 </script>
 
 <template>
@@ -46,6 +89,7 @@ const REPO = "https://github.com/peter-lewis/lifeline"
             :markers="peterLifeline.markers"
             :birth-year="peterLifeline.birthYear"
             :title="peterLifeline.name"
+            :description="peterLifeline.description"
             class="h-full"
           />
         </LifelineStage>

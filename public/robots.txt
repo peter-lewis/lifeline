@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# The published shadcn-vue registry. These are JSON payloads that embed the
+# literal source of the components — useful to installers, noise in an index.
+Disallow: /r/
+
+Sitemap: https://www.peterlewis.dev/sitemap.xml

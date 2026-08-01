@@ -1,7 +1,23 @@
 <script setup lang="ts">
 import { imageCredits } from "~/lib/image-credits"
 
-useHead({ title: "Image credits — Peter Lewis" })
+/**
+ * Its own canonical and description. Both used to be inherited from
+ * `app.head`, which pointed every route's canonical at the homepage — so
+ * this page asked Google to drop it, and the CC BY / CC BY-SA attribution
+ * it exists to carry was unreachable from search.
+ */
+useHead({
+  title: "Image credits — Peter Lewis",
+  link: [{ rel: "canonical", href: "https://www.peterlewis.dev/credits" }],
+  meta: [
+    {
+      name: "description",
+      content:
+        "Sources, authors and licences for the hardware photography on peterlewis.dev — Wikimedia Commons, public domain and Creative Commons.",
+    },
+  ],
+})
 </script>
 
 <template>
