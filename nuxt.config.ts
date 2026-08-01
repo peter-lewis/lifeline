@@ -1,5 +1,18 @@
 import tailwindcss from "@tailwindcss/vite"
 
+/**
+ * One source for the strings that appear in the tab, in search results and
+ * in a shared link's card — they drift apart the moment they are typed out
+ * in more than one place.
+ */
+const SITE_TITLE = "Lifeline of Peter Lewis: Software Engineer"
+const SITE_DESCRIPTION =
+  "How I got into computers, 1984 to now — first consoles, first builds, first jobs, and the people along the way."
+const SITE_IMAGE_ALT =
+  "A horizontal timeline opening on 1984: being born in Raleigh, the first Macintosh, the Atari 2600, and a first dial-up BBS."
+/** Swap for https://peterlewis.dev once that domain's DNS points here. */
+const SITE_URL = "https://lifeline-peter-lewis.vercel.app"
+
 export default defineNuxtConfig({
   compatibilityDate: "2026-07-29",
   devtools: { enabled: false },
@@ -22,14 +35,39 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: "Lifeline of Peter Lewis: Software Engineer",
-      link: [{ rel: "icon", type: "image/svg+xml", href: "/icon.svg" }],
+      title: SITE_TITLE,
+      link: [
+        { rel: "icon", type: "image/svg+xml", href: "/icon.svg" },
+        { rel: "canonical", href: SITE_URL },
+      ],
+      /**
+       * Absolute URLs throughout: crawlers do not resolve relative paths,
+       * and a relative og:image is the usual reason a card renders with no
+       * picture. SITE_URL is the vercel.app host rather than peterlewis.dev
+       * because the card has to work today — swap it the moment that
+       * domain's DNS lands, or shares will point at a host that 404s.
+       */
       meta: [
-        {
-          name: "description",
-          content:
-            "A timeline component for the stories that unfold over time — a career, a company, a journey. Ships as a shadcn registry.",
-        },
+        { name: "description", content: SITE_DESCRIPTION },
+
+        { property: "og:type", content: "website" },
+        { property: "og:site_name", content: "Peter Lewis" },
+        { property: "og:title", content: SITE_TITLE },
+        { property: "og:description", content: SITE_DESCRIPTION },
+        { property: "og:url", content: SITE_URL },
+        { property: "og:image", content: `${SITE_URL}/og.png` },
+        { property: "og:image:type", content: "image/png" },
+        { property: "og:image:width", content: "2400" },
+        { property: "og:image:height", content: "1260" },
+        { property: "og:image:alt", content: SITE_IMAGE_ALT },
+
+        // summary_large_image is what gives the 1.91:1 banner rather than
+        // a thumbnail squeezed beside the text.
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: SITE_TITLE },
+        { name: "twitter:description", content: SITE_DESCRIPTION },
+        { name: "twitter:image", content: `${SITE_URL}/og.png` },
+        { name: "twitter:image:alt", content: SITE_IMAGE_ALT },
       ],
     },
   },
