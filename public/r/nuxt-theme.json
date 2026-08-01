@@ -7,7 +7,7 @@
     "@nuxtjs/color-mode"
   ],
   "registryDependencies": [
-    "https://lifeline-peter-lewis.vercel.app/r/lifeline.json"
+    "https://www.peterlewis.dev/r/lifeline.json"
   ],
   "files": [
     {

@@ -4,7 +4,7 @@
   "title": "Platform icons",
   "description": "Example of registering your own brand marks into CompanyIcon. Unregistered ids fall back to an initial in a ring.",
   "registryDependencies": [
-    "https://lifeline-peter-lewis.vercel.app/r/lifeline.json"
+    "https://www.peterlewis.dev/r/lifeline.json"
   ],
   "files": [
     {

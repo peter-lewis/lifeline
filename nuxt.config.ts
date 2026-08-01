@@ -10,8 +10,7 @@ const SITE_DESCRIPTION =
   "How I got into computers, 1984 to now — first consoles, first builds, first jobs, and the people along the way."
 const SITE_IMAGE_ALT =
   "A horizontal timeline opening on 1984: being born in Raleigh, the first Macintosh, the Atari 2600, and a first dial-up BBS."
-/** Swap for https://peterlewis.dev once that domain's DNS points here. */
-const SITE_URL = "https://lifeline-peter-lewis.vercel.app"
+const SITE_URL = "https://www.peterlewis.dev"
 
 export default defineNuxtConfig({
   compatibilityDate: "2026-07-29",
@@ -43,9 +42,7 @@ export default defineNuxtConfig({
       /**
        * Absolute URLs throughout: crawlers do not resolve relative paths,
        * and a relative og:image is the usual reason a card renders with no
-       * picture. SITE_URL is the vercel.app host rather than peterlewis.dev
-       * because the card has to work today — swap it the moment that
-       * domain's DNS lands, or shares will point at a host that 404s.
+       * picture.
        */
       meta: [
         { name: "description", content: SITE_DESCRIPTION },

@@ -67,7 +67,7 @@ const REPO = "https://github.com/peter-lewis/lifeline"
             </NuxtLink>
           </div>
           <CopyCommand
-            command="npx shadcn-vue add https://lifeline-peter-lewis.vercel.app/r/personal.json"
+            command="npx shadcn-vue add https://www.peterlewis.dev/r/personal.json"
           />
         </LifelineFooter>
       </LifelineNuxtTheme>

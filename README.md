@@ -8,14 +8,14 @@ It ships as a [shadcn registry](https://www.shadcn-vue.com/docs/registry.html) �
 
 This is a Vue 3 port of [evilrabbit/lifeline](https://github.com/evilrabbit/lifeline), which is React and Next.js. The layout maths, intro choreography, scrub physics, and interaction rules are ported rather than reinterpreted: on a 1440×900 viewport both settle the rail at the same `translate3d(-6274px, 0, 0)`.
 
-**Live demo:** [lifeline-peter-lewis.vercel.app](https://lifeline-peter-lewis.vercel.app)
+**Live demo:** [www.peterlewis.dev](https://www.peterlewis.dev)
 
 ## Install
 
 **Starting from nothing?** This gets you a page that runs, framing included:
 
 ```bash
-npx shadcn-vue@latest add https://lifeline-peter-lewis.vercel.app/r/page.json
+npx shadcn-vue@latest add https://www.peterlewis.dev/r/page.json
 ```
 
 Components, starter data, the shell, and a route at `pages/index.vue`. If that route already exists, the CLI asks before touching it.
@@ -23,26 +23,26 @@ Components, starter data, the shell, and a route at `pages/index.vue`. If that r
 **Already have a page?** Take the shell without the route, so the rail still sits inset and aligned inside your own layout:
 
 ```bash
-npx shadcn-vue@latest add https://lifeline-peter-lewis.vercel.app/r/shell.json
+npx shadcn-vue@latest add https://www.peterlewis.dev/r/shell.json
 ```
 
 **Just want the data template?**
 
 ```bash
-npx shadcn-vue@latest add https://lifeline-peter-lewis.vercel.app/r/personal.json
+npx shadcn-vue@latest add https://www.peterlewis.dev/r/personal.json
 ```
 
 Or just the component system, no starter and no framing:
 
 ```bash
-npx shadcn-vue@latest add https://lifeline-peter-lewis.vercel.app/r/lifeline.json
+npx shadcn-vue@latest add https://www.peterlewis.dev/r/lifeline.json
 ```
 
 Two optional extras — the sun/moon toggle, and the Nuxt theme bridge it drives:
 
 ```bash
-npx shadcn-vue@latest add https://lifeline-peter-lewis.vercel.app/r/theme-switcher.json
-npx shadcn-vue@latest add https://lifeline-peter-lewis.vercel.app/r/nuxt-theme.json
+npx shadcn-vue@latest add https://www.peterlewis.dev/r/theme-switcher.json
+npx shadcn-vue@latest add https://www.peterlewis.dev/r/nuxt-theme.json
 ```
 
 Any item installs the components into `components/lifeline/`, the data helper into `lib/lifeline-data.ts`, adds the intro keyframes to your CSS, and installs `@lucide/vue`, `clsx`, and `tailwind-merge`.
@@ -54,7 +54,7 @@ Add one line to your `components.json` and the URLs go away:
 ```json
 {
   "registries": {
-    "@lifeline": "https://lifeline-peter-lewis.vercel.app/r/{name}.json"
+    "@lifeline": "https://www.peterlewis.dev/r/{name}.json"
   }
 }
 ```
@@ -259,7 +259,7 @@ Working on this repo — content rules, the mandatory registry rebuild, and the 
 
 The timeline component is a port of [evilrabbit/lifeline](https://github.com/evilrabbit/lifeline) by Evil Rabbit, MIT licensed.
 
-Hardware photography on the demo comes from Wikimedia Commons under public domain or Creative Commons free licences — see [/credits](https://lifeline-peter-lewis.vercel.app/credits) for per-image attribution.
+Hardware photography on the demo comes from Wikimedia Commons under public domain or Creative Commons free licences — see [/credits](https://www.peterlewis.dev/credits) for per-image attribution.
 
 ## License
 

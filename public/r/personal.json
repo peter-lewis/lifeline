@@ -4,8 +4,8 @@
   "title": "Personal timeline",
   "description": "A life, year by year — starter data for a personal Lifeline, with the four-track legend.",
   "registryDependencies": [
-    "https://lifeline-peter-lewis.vercel.app/r/lifeline.json",
-    "https://lifeline-peter-lewis.vercel.app/r/data.json"
+    "https://www.peterlewis.dev/r/lifeline.json",
+    "https://www.peterlewis.dev/r/data.json"
   ],
   "files": [
     {

@@ -5,7 +5,7 @@ shadcn-vue registry that publishes the component behind it. A change to
 the content ships to a real biography; a change to the components ships to
 anyone who installs the registry. Both are public.
 
-Live at <https://lifeline-peter-lewis.vercel.app> (`lifeline-nuxt.vercel.app`
+Live at <https://www.peterlewis.dev> (`lifeline-nuxt.vercel.app`
 still resolves and should keep working).
 
 ## Adding to the timeline

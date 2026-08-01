@@ -1,7 +1,7 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry.json",
   "name": "peterlewis",
-  "homepage": "https://lifeline-peter-lewis.vercel.app",
+  "homepage": "https://www.peterlewis.dev",
   "items": [
     {
       "name": "lifeline",
@@ -289,7 +289,7 @@
         "@lucide/vue"
       ],
       "registryDependencies": [
-        "https://lifeline-peter-lewis.vercel.app/r/lifeline.json"
+        "https://www.peterlewis.dev/r/lifeline.json"
       ],
       "files": [
         {
@@ -308,7 +308,7 @@
         "@nuxtjs/color-mode"
       ],
       "registryDependencies": [
-        "https://lifeline-peter-lewis.vercel.app/r/lifeline.json"
+        "https://www.peterlewis.dev/r/lifeline.json"
       ],
       "files": [
         {
@@ -338,8 +338,8 @@
       "title": "Personal timeline",
       "description": "A life, year by year — starter data for a personal Lifeline, with the four-track legend.",
       "registryDependencies": [
-        "https://lifeline-peter-lewis.vercel.app/r/lifeline.json",
-        "https://lifeline-peter-lewis.vercel.app/r/data.json"
+        "https://www.peterlewis.dev/r/lifeline.json",
+        "https://www.peterlewis.dev/r/data.json"
       ],
       "files": [
         {
@@ -355,7 +355,7 @@
       "title": "Platform icons",
       "description": "Example of registering your own brand marks into CompanyIcon. Unregistered ids fall back to an initial in a ring.",
       "registryDependencies": [
-        "https://lifeline-peter-lewis.vercel.app/r/lifeline.json"
+        "https://www.peterlewis.dev/r/lifeline.json"
       ],
       "files": [
         {
@@ -371,11 +371,11 @@
       "title": "Lifeline page",
       "description": "The full page: shell, nav, timeline, footer legend and credits link.",
       "registryDependencies": [
-        "https://lifeline-peter-lewis.vercel.app/r/lifeline.json",
-        "https://lifeline-peter-lewis.vercel.app/r/shell.json",
-        "https://lifeline-peter-lewis.vercel.app/r/theme-switcher.json",
-        "https://lifeline-peter-lewis.vercel.app/r/nuxt-theme.json",
-        "https://lifeline-peter-lewis.vercel.app/r/personal.json"
+        "https://www.peterlewis.dev/r/lifeline.json",
+        "https://www.peterlewis.dev/r/shell.json",
+        "https://www.peterlewis.dev/r/theme-switcher.json",
+        "https://www.peterlewis.dev/r/nuxt-theme.json",
+        "https://www.peterlewis.dev/r/personal.json"
       ],
       "files": [
         {
