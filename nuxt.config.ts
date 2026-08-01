@@ -11,6 +11,8 @@ const SITE_DESCRIPTION =
 const SITE_IMAGE_ALT =
   "A horizontal timeline opening on 1984: being born in Raleigh, the first Macintosh, the Atari 2600, and a first dial-up BBS."
 const SITE_URL = "https://www.peterlewis.dev"
+/** Attribution on the card. The @ is required — a bare handle is ignored. */
+const X_HANDLE = "@creathir"
 
 export default defineNuxtConfig({
   compatibilityDate: "2026-07-29",
@@ -61,6 +63,8 @@ export default defineNuxtConfig({
         // summary_large_image is what gives the 1.91:1 banner rather than
         // a thumbnail squeezed beside the text.
         { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:site", content: X_HANDLE },
+        { name: "twitter:creator", content: X_HANDLE },
         { name: "twitter:title", content: SITE_TITLE },
         { name: "twitter:description", content: SITE_DESCRIPTION },
         { name: "twitter:image", content: `${SITE_URL}/og.png` },
