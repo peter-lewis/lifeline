@@ -143,14 +143,33 @@ watch(
     }
     section.addEventListener("animationend", onAnimationEnd)
 
+    /**
+     * Measured once, before the first frame.
+     *
+     * The reveal only ever animates opacity and translate3d, so neither
+     * the list's height nor any entry's offset moves while it runs —
+     * these are constants. Reading them inside the tick was not: the
+     * tick writes classes on the entries it reveals, and the intro
+     * scroll rewrites `--lifeline-intro-progress` on the section every
+     * frame, so both reads landed on invalidated style and forced a full
+     * reflow of a 43-entry, 170-event tree. Once per frame for the
+     * length of the intro, that was ~2.3s of layout.
+     *
+     * The tick is now arithmetic and class writes, and touches no
+     * geometry at all. `section.style.getPropertyValue` reads the inline
+     * style declaration rather than the computed one, so it stays cheap.
+     */
+    const railHeight = ol.offsetHeight
+    const entryOffsets = entries.map((li) => li.offsetTop)
+
     let next = 0
     const tick = () => {
       const progress = parseFloat(
         section.style.getPropertyValue("--lifeline-intro-progress") || "0",
       )
-      const tip = progress * ol.offsetHeight
+      const tip = progress * railHeight
 
-      while (next < entries.length && (entries[next]?.offsetTop ?? 0) <= tip) {
+      while (next < entries.length && (entryOffsets[next] ?? 0) <= tip) {
         const el = targets[next]
         if (el) {
           el.classList.remove("opacity-0")

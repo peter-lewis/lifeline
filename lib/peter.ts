@@ -664,6 +664,7 @@ const record = defineLifeline({
           // Sits below this column's own events instead.
           track: "work",
           src: "/images/harland-clarke-datacenter-2014.webp",
+          thumbnail: "/images/harland-clarke-datacenter-2014-card.webp",
           alt: "Me at Harland Clarke Information Technology, on a tour of their data centre, July 2014",
           width: 135,
           x: 0.04,
@@ -689,6 +690,7 @@ const record = defineLifeline({
         {
           track: "work",
           src: "/images/harland-clarke-awards-2015.webp",
+          thumbnail: "/images/harland-clarke-awards-2015-card.webp",
           alt: "Harland Clarke awards on my desk: Pillar of Excellence 2012 for customer focus, and 2015 Rock Star",
           width: 150,
           x: 0.04,

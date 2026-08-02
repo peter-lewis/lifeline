@@ -18,9 +18,14 @@ const props = defineProps<{ media: LifelineEventImage; class?: string }>()
     :aria-label="props.media.alt"
     :class="props.class"
   />
+  <!--
+    `thumbnail` where one exists: this renders the card, and the lightbox
+    reads `src` directly, so the full-resolution file is only fetched if
+    someone actually opens the photo.
+  -->
   <img
     v-else
-    :src="props.media.src"
+    :src="props.media.thumbnail ?? props.media.src"
     :alt="props.media.alt"
     loading="lazy"
     :class="props.class"

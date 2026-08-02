@@ -49,6 +49,8 @@ export function useLifelineVerticalScroll(
   let maxScroll = 0
   let scrollParent: HTMLElement | null = null
   let initialized = false
+  /** Latched by `measureLayout` once every entry has a real height. */
+  let entriesLaidOut = false
   let introStarted = false
   let introScrollId = 0
   let introScrollStart = 0
@@ -78,8 +80,21 @@ export function useLifelineVerticalScroll(
     scrollParent = getScrollParent(section)
     if (!scrollParent) return 0
 
-    const heights = entryEls.map((entry) => entry?.offsetHeight ?? 0)
-    if (heights.length < markerCount() || heights.some((h) => h <= 0)) return 0
+    /**
+     * A one-way latch. The per-entry `offsetHeight` sweep only ever
+     * answers "have the entries been laid out yet", and once that is
+     * true a resize cannot make it false again — but this runs from a
+     * ResizeObserver, so every collapse transition and every window
+     * resize was re-reading 43 boxes to re-learn the same answer.
+     * `maxScroll` below still refreshes each time; that is one read.
+     */
+    if (!entriesLaidOut) {
+      const heights = entryEls.map((entry) => entry?.offsetHeight ?? 0)
+      if (heights.length < markerCount() || heights.some((h) => h <= 0)) {
+        return 0
+      }
+      entriesLaidOut = true
+    }
 
     maxScroll = Math.max(
       0,

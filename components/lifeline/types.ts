@@ -37,6 +37,13 @@ export type LifelineEventSegment =
 export interface LifelineEventImage {
   src: string
   alt: string
+  /**
+   * A smaller variant for inline and card display. The lightbox always
+   * opens `src`, so this is what keeps a photo sized for a full-screen
+   * view from being downloaded at that size for a 280px card. Omit it
+   * and everything falls back to `src`.
+   */
+  thumbnail?: string
   /** Optional mp4/webm — hover shows this (muted, looping) with src as fallback. */
   video?: string
 }

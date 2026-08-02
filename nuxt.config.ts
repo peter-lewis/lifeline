@@ -19,6 +19,14 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   modules: ["@nuxtjs/color-mode"],
   css: ["~/assets/css/main.css"],
+
+  /**
+   * The stylesheet was the only render-blocking request on the page and
+   * the longest link in the critical path (537ms to first byte of CSS).
+   * It is ~7.4 KiB gzipped — small enough that inlining it into the
+   * document is cheaper than a second round trip.
+   */
+  features: { inlineStyles: true },
   vite: { plugins: [tailwindcss()] },
   typescript: { strict: true },
 

@@ -172,6 +172,19 @@ Three ways browser checks have lied in this repo:
 - Don't read layout during a width transition. `getViewportCoverage` in a
   per-frame loop cost ~400ms of forced reflow; the rail anchor now computes
   its destination from the width arrays and only writes a transform.
+- Same trap, twice more, both in the vertical intro. The reveal tick in
+  `LifelineVertical.vue` read `ol.offsetHeight` and `entries[i].offsetTop`
+  every frame, right after its own `classList` writes — ~2.3s of forced
+  reflow across the intro. The reveal only animates opacity and
+  `translate3d`, so those are constants: they're hoisted out of the loop
+  now. `measureLayout` in `use-lifeline-vertical-scroll.ts` swept
+  `offsetHeight` over all 43 entries on every ResizeObserver tick just to
+  ask "laid out yet"; that's a one-way latch now. **If you add geometry
+  reads, check they aren't inside a rAF that also writes.**
+- Photos carry an optional `thumbnail` alongside `src`. Cards render the
+  thumbnail via `LifelineEventMedia`; the lightbox always opens `src`. A
+  1600px photo sized for a full-screen view was being downloaded for a
+  280px card.
 
 ## Images and licensing
 
