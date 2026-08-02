@@ -109,14 +109,14 @@ const introStyle = computed<CSSProperties>(() =>
 
       <div class="flex w-full flex-col items-start text-left">
         <p
-          class="mb-5 h-4 text-[11px] font-medium leading-4 tabular-nums text-zinc-500 transition-colors duration-300 group-hover:text-black dark:text-zinc-600 dark:group-hover:text-zinc-400"
+          class="mb-5 h-4 text-[11px] font-medium leading-4 tabular-nums text-zinc-500 transition-colors duration-300 group-hover:text-black dark:text-zinc-400"
         >
           {{ age }}
         </p>
 
         <div class="mb-6 flex h-5 items-center">
           <p
-            class="whitespace-nowrap text-[15px] font-medium leading-5 tabular-nums text-zinc-500 transition-colors duration-300 group-hover:text-black dark:group-hover:text-white"
+            class="whitespace-nowrap text-[15px] font-medium leading-5 tabular-nums text-zinc-500 transition-colors duration-300 group-hover:text-black dark:text-zinc-400 dark:group-hover:text-white"
           >
             {{ props.marker.label ?? props.marker.year }}
           </p>
@@ -153,7 +153,7 @@ const introStyle = computed<CSSProperties>(() =>
         </div>
 
         <div
-          class="relative w-full pb-10 text-zinc-500 transition-colors duration-300 group-hover:text-black dark:group-hover:text-zinc-300"
+          class="relative w-full pb-10 text-zinc-500 transition-colors duration-300 group-hover:text-black dark:text-zinc-400 dark:group-hover:text-zinc-300"
         >
           <!-- When this column carries people, the content block reserves
                the band's height as a floor: short and average columns put
