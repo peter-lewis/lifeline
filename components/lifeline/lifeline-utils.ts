@@ -1,3 +1,4 @@
+import { getMarkerTracks } from "./lifeline-tracks"
 import type {
   LifelineEvent,
   LifelineFilterKey,
@@ -141,6 +142,35 @@ export function getMarkerHeight(marker: LifelineMarker, nextYear?: number) {
   return Math.min(520, Math.max(peopleOnly ? 148 : 188, height))
 }
 
+/** A year showing nothing at all. Just the label and its gutter. */
+const COLLAPSED_WIDTH = 80
+/** One summary dot: the 6px dot plus the 8px `ml-2` that precedes it. */
+const SUMMARY_DOT_SLOT = 14
+
+/**
+ * How wide a year with no visible events still needs to be.
+ *
+ * A filtered-out year is not necessarily empty: it keeps one summary dot
+ * per thread it is hiding, beside its number. Those were not being
+ * counted, so the year measured 80px — which leaves 11px after the
+ * gutter and the label, less than a single dot's slot, and
+ * `LifelineCollapse` clipped them to slivers. Every thread the year
+ * carries but is not currently showing buys back its own width.
+ */
+function collapsedWidth(
+  marker: LifelineMarker,
+  isTrackOn?: LifelineTrackVisibility,
+) {
+  if (!isTrackOn) return COLLAPSED_WIDTH
+
+  // Mirrors `getMutedMarkerTracks`: presence of people is unconditional,
+  // and a thread is muted precisely when its legend key is switched off.
+  const carried = getMarkerTracks(marker.events, hasMarkerPeople(marker))
+  const muted = carried.filter((key) => !isTrackOn(key)).length
+
+  return COLLAPSED_WIDTH + muted * SUMMARY_DOT_SLOT
+}
+
 export function getMarkerWidth(
   marker: LifelineMarker,
   nextYear?: number,
@@ -151,8 +181,10 @@ export function getMarkerWidth(
   const hasContent = hasMarkerContent(marker, isVisible, isTrackOn, showPeople)
   const hasPeople = showPeople && hasMarkerPeople(marker)
 
-  if (!nextYear) return hasContent ? 360 : 80
-  if (!hasContent) return 80
+  if (!nextYear) {
+    return hasContent ? 360 : collapsedWidth(marker, isTrackOn)
+  }
+  if (!hasContent) return collapsedWidth(marker, isTrackOn)
 
   const peopleOnly =
     hasPeople &&

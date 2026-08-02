@@ -126,9 +126,17 @@ const introStyle = computed<CSSProperties>(() =>
             Mounted for every thread the year carries and folded sideways
             on the hidden ones, so they slide in rather than appear.
           -->
+          <!--
+            `shrink-0` because these are flex items: without it they are
+            free to shrink below their content, and the fold's
+            `overflow-hidden` then clips the dot rather than the row
+            overflowing visibly. `getMarkerWidth` buys the room, this
+            stops it being given back.
+          -->
           <LifelineCollapse
             v-for="key in allTracks"
             :key="key"
+            class="shrink-0"
             axis="x"
             :show="mutedTracks.includes(key)"
           >
