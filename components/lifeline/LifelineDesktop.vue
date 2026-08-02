@@ -181,7 +181,7 @@ const introStyle = computed<CSSProperties | undefined>(() =>
       >
         <div
           ref="trackEl"
-          class="relative flex w-max items-start will-change-transform [--lifeline-people-top:calc(14.5rem+40px)] [--lifeline-rail:5rem]"
+          class="relative flex w-max items-start will-change-transform [--lifeline-rail:5rem]"
           :style="{ width: `${trackWidth}px` }"
         >
           <!--

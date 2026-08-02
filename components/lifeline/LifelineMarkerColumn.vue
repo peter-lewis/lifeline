@@ -155,17 +155,14 @@ const introStyle = computed<CSSProperties>(() =>
         <div
           class="relative w-full pb-10 text-zinc-500 transition-colors duration-300 group-hover:text-black dark:text-zinc-400 dark:group-hover:text-zinc-300"
         >
-          <!-- When this column carries people, the content block reserves
-               the band's height as a floor: short and average columns put
-               their portraits on the same line as every other column, and
-               a column whose events run past the floor pushes its own
-               portraits below them instead of under them. pb-6 is the gap
-               in the overflow case — absorbed by the floor otherwise. -->
+          <!-- People belong directly beneath their year's events. Keep a
+               small gap, but do not reserve a shared vertical band: doing
+               so stranded people far below years with short event lists. -->
           <div
             :class="
               cn(
                 'flex w-full flex-col items-start pt-6',
-                people.length > 0 && 'min-h-[var(--lifeline-people-top)] pb-6',
+                people.length > 0 && 'pb-6',
               )
             "
           >
